@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Playground40::Application.load_tasks
+Playground::Application.load_tasks
