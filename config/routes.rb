@@ -1,3 +1,9 @@
+def admin?(request)
+  remember_token = User.encrypt(request.cookies["remember_token"])
+  user = User.find_by(remember_token: remember_token)
+  user && user.admin?
+end
+
 Playground::Application.routes.draw do
 
   resources :users do
@@ -16,6 +22,10 @@ Playground::Application.routes.draw do
   match 'signup', to: 'users#new', via: 'get'
   match 'signin', to: 'sessions#new', via: 'get'
   match 'signout', to: 'sessions#destroy', via: :delete
+
+  namespace :admin do
+    mount RolloutUi::Engine => '/rollout', constraints: lambda {|request| admin?(request) }
+  end
 
   root :to => 'static_pages#home'
 

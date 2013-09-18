@@ -3,6 +3,11 @@
     <div class="container">
       <%= link_to "Playground", root_path, id: "logo" %>
       <nav>
+        <% if $rollout.active?(:beta, current_user) %>
+          <ul class="nav pull-left">
+            <li id="beta">beta</li>
+          </ul>
+        <% end %>
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Help", help_path %></li>
