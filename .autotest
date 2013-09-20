@@ -1,1 +1,2 @@
+# run spec with "bundle exec"
 require 'autotest/bundler'

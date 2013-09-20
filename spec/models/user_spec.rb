@@ -109,7 +109,7 @@ describe User do
 
   describe "#authenticate" do
     before { user.save }
-    let(:found_user) { User.find_by_email user.email }
+    let(:found_user) { User.find_by email: user.email }
 
     it "returns the user when password is correct" do
       user.should == found_user.authenticate("secret")
@@ -132,18 +132,18 @@ describe User do
 
     it "following relationships are destroyed with the user" do
       user.follow! other_user
-      Relationship.find_by_followed_id(other_user).should_not be_nil
+      Relationship.find_by(followed_id: other_user).should_not be_nil
 
       user.destroy
-      Relationship.find_by_followed_id(other_user).should be_nil
+      Relationship.find_by(followed_id: other_user).should be_nil
     end
 
     it "follower relationships are destroyed with the user" do
       follower.follow! user
-      Relationship.find_by_follower_id(follower).should_not be_nil
+      Relationship.find_by(follower_id: follower).should_not be_nil
 
       user.destroy
-      Relationship.find_by_follower_id(follower).should be_nil
+      Relationship.find_by(follower_id: follower).should be_nil
     end
   end
 
@@ -160,7 +160,7 @@ describe User do
       it "are also destroyed" do
         user.destroy
         [new_post, old_post].each do |micropost|
-          Micropost.find_by_id(micropost.id).should be_nil
+          Micropost.find_by(id: micropost.id).should be_nil
         end
       end
     end
