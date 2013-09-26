@@ -16,9 +16,9 @@ gem 'redis'
 gem 'redis-namespace'
 
 group :development, :test do
-  gem 'guard-rspec', '2.5.2'
+  gem 'guard-rspec', '3.1.0'
   gem 'pry'
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails', '2.14.0'
 end
 
 # Gems used only for assets and not required
