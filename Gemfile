@@ -17,6 +17,8 @@ gem 'redis-namespace'
 
 group :development, :test do
   gem 'guard-rspec', '3.1.0'
+  gem 'guard-livereload'
+  gem "rack-livereload"
   gem 'pry'
   gem 'rspec-rails', '2.14.0'
 end

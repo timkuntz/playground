@@ -26,4 +26,7 @@ Playground::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # https://github.com/johnbintz/rack-livereload
+  config.middleware.use Rack::LiveReload
 end
