@@ -37,7 +37,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner', '0.9.1'
   gem 'launchy', '2.2.0'
-  gem 'growl', '1.0.3'
+  gem 'terminal-notifier-guard'
   gem 'fakeredis', :require => "fakeredis/rspec"
 end
 
